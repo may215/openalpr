@@ -20,6 +20,9 @@ copy . /srv/openalpr
 run mkdir /srv/openalpr/src/build
 workdir /srv/openalpr/src/build
 
+# OpenCV issue For me the easiest solution to remove this warning was actually to disable this driver:
+run sudo ln /dev/null /dev/raw1394 
+
 # Setup the compile environment
 run cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_SYSCONFDIR:PATH=/etc ..
 
